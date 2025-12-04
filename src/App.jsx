@@ -35,8 +35,8 @@ function App() {
     >
       
       {/* АУДИО ЭЛЕМЕНТЫ (Невидимые) */}
-      <audio ref={audioRef} loop src="/bg.mp3" /> 
-      <audio ref={clickSfx} src="/click.mp3" />
+      <audio ref={audioRef} loop src="./bg.mp3" /> 
+      <audio ref={clickSfx} src="./click.mp3" />
 
       {/* --- UI СЛОЙ --- */}
       <div className={`absolute top-0 left-0 w-full h-full pointer-events-none z-10 flex flex-col justify-between p-8 md:p-12 transition-all duration-700 ${isInspecting ? 'opacity-0 scale-110 pointer-events-none' : 'opacity-100 scale-100'}`}>
