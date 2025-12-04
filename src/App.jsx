@@ -67,7 +67,7 @@ function App() {
                }}
                className="px-10 py-4 bg-red-600 text-black font-bold uppercase tracking-widest hover:bg-white transition-colors duration-300 shadow-[0_0_20px_rgba(220,38,38,0.4)]"
             >
-               Осмотреть (Inspect)
+               Inspect
             </button>
         </div>
       </div>
@@ -109,11 +109,12 @@ function App() {
 
         <PresentationControls 
           enabled={true}
-          global 
-          config={{ mass: 2, tension: 500 }} 
-          snap={{ mass: 4, tension: 1500 }}
-          rotation={[0, -Math.PI / 4, 0]}
-          polar={[-Math.PI / 3, Math.PI / 3]}
+          cursor={true} // Курсор grab/grabbing
+          speed={1.5} 
+          rotation={[0, -Math.PI / 4, 0]} // Начальный угол
+          polar={[-Math.PI / 3, Math.PI / 3]} // Ограничение верх/низ
+          azimuth={[-Infinity, Infinity]} // Вращение по кругу без ограничений
+          config={{ mass: 1, tension: 170, friction: 26 }} // Плавная инерция (Вес оружия)
         >
             <Float 
               rotationIntensity={isInspecting ? 0 : 0.2} 
