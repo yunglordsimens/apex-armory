@@ -56,7 +56,7 @@ function App() {
         <div className="pointer-events-auto max-w-md">
             <h2 className="text-4xl text-white font-bold mb-2">TOMMY GUN</h2>
             <p className="text-gray-400 text-sm mb-6 leading-relaxed">
-               Кликните по оружию для детального осмотра.
+               Click on the weapon for a detailed inspection.
             </p>
             
             <button 
@@ -89,7 +89,15 @@ function App() {
       )}
 
       {/* --- 3D СЦЕНА --- */}
-      <Canvas shadows dpr={[1, 2]} camera={{ position: [0, 0, 10], fov: 30 }} gl={{ antialias: false }}>
+      <Canvas 
+        shadows 
+        dpr={[1, 2]} 
+        /* near: 0.1 — чтобы камеру не "слепило", если подлететь в упор 
+         far: 1000 — чтобы дальние части не исчезали
+        */
+        camera={{ position: [0, 0, 10], fov: 30, near: 0.1, far: 1000 }} 
+        gl={{ antialias: false }}
+      >
         <color attach="background" args={['#050505']} />
         <fog attach="fog" args={['#050505', 5, 20]} />
 
